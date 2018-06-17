@@ -8,7 +8,7 @@ class MiniArg {
 
 	public function __construct($options, $rules, $usage = '[OPTION]...') {
 		$this->rules = $rules;
-	$this->usage = $usage;
+		$this->usage = $usage;
 		foreach($options as $option) {
 			if(!isset($option['takesValue'])) { $option['takesValue'] = false; }
 			if(!isset($option['valName'])) { $option['valName'] = 'value'; }
