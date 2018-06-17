@@ -4,14 +4,14 @@ class ArgumentException extends \Exception {}
 class MiniArg {
 	public $flags = Array();
 	public $posargs = Array();
-    public $usage = '';
+	public $usage = '';
 
 	public function __construct($options, $rules, $usage = '[OPTION]...') {
 		$this->rules = $rules;
-        $this->usage = $usage;
+	$this->usage = $usage;
 		foreach($options as $option) {
-            if(!isset($option['takesValue'])) { $option['takesValue'] = false; }
-            if(!isset($option['valName'])) { $option['valName'] = 'value'; }
+			if(!isset($option['takesValue'])) { $option['takesValue'] = false; }
+			if(!isset($option['valName'])) { $option['valName'] = 'value'; }
 			if(substr($option['id'], 0, 1) == '-') {
 				$this->flags[$option['id']] = $option;
 			} else {
@@ -82,7 +82,7 @@ class MiniArg {
 
 
 	function printHelp() {
-        global $argv;
+		global $argv;
 		//TODO: generate usage string based on the conditionals.	;-)
 		echo('Usage: ' . $argv[0] . ' ' . $this->usage . "\n");
 		echo("Options:\n");
